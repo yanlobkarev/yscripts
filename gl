@@ -1,0 +1,1 @@
+git log --graph --date=short --pretty=format:"%ad %Cblue%H%Creset %s4"
