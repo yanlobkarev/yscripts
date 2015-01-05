@@ -14,6 +14,9 @@ alias untargz='tar xvfz'
 alias untarbz='tar yxf'
 alias simfldr='open ~/Library/Application\ Support/iPhone\ Simulator'
 
+# editors
+alias nano='nano -c'
+
 # look of disapproval
 RED="\[\033[00;31m\]"
 NORMAL="\[\033[00;39m\]"
