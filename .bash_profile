@@ -30,3 +30,7 @@ export CLICOLOR=1
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# git message editor 
+git config --global core.editor
+export GIT_EDITOR=nano
+
