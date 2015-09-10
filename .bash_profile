@@ -34,3 +34,13 @@ export GREP_OPTIONS='--color=auto'
 git config --global core.editor
 export GIT_EDITOR=nano
 
+# Python fabric autocompletion
+_fab_completion() {
+    COMPREPLY=()
+
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+
+    local tasks=$(fab --shortlist 2>/dev/null)
+    COMPREPLY=( $(compgen -W "${tasks}" -- ${cur}) )
+}
+complete -F _fab_completion fab
