@@ -44,10 +44,12 @@ Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:airline_powerline_fonts=1
 let &t_Co=256
+Plugin 'tpope/vim-fugitive' " for git blame mostly
 " ~~~~~~~~~~ Vim settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set encoding=utf-8
 syntax on
 filetype indent plugin on
+:set clipboard=unnamed
 :set background=dark
 :set cursorline
 
@@ -55,6 +57,7 @@ set modeline
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 :set backspace=indent,eol,start
 :set whichwrap+=<,>,h,l,[,]
+:imap <A-BS> <C-W>
 
 :set lazyredraw
 :set nu
