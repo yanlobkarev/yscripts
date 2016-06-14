@@ -23,17 +23,13 @@ filetype plugin indent on    " required
 Plugin 'davidhalter/jedi-vim'
 autocmd FileType python setlocal completeopt-=preview
 
-" ~~~~~~~~~~ Solarized theme ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  :let g:zenburn_high_Contrast=1
-  colorscheme zenburn
-endif
-call togglebg#map('<F5>')
+" ~~~~~~~~~~ Color themes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+colorscheme moonshine          " https://github.com/KKPMW/moonshine-vim.git
+"colorscheme off                 " https://github.com/pbrisbin/vim-colors-off.git
+"colorscheme 1989               " https://github.com/sonjapeterson/1989.vim.git
+"colorscheme duotone-darkpool   " https://github.com/atelierbram/vim-colors_duotones.git
+
+:set background=dark
 
 " ~~~~~~~~~~ Navigation Bar & File Search ~~~~~~~~~~~~~~~
 Plugin 'scrooloose/nerdtree'
@@ -44,20 +40,21 @@ Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:airline_powerline_fonts=1
 let &t_Co=256
-Plugin 'tpope/vim-fugitive' " for git blame mostly
+Plugin 'tpope/vim-fugitive' " Git support
 " ~~~~~~~~~~ Vim settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set encoding=utf-8
 syntax on
 filetype indent plugin on
-:set clipboard=unnamed
-:set background=dark
+set clipboard=unnamed
 :set cursorline
 
 set modeline
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 :set backspace=indent,eol,start
 :set whichwrap+=<,>,h,l,[,]
-:imap <A-BS> <C-W>
+
+map = <c-w>>
+map - <c-w><
 
 :set lazyredraw
 :set nu
