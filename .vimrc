@@ -23,6 +23,7 @@ filetype plugin indent on    " required
 Plugin 'davidhalter/jedi-vim'
 autocmd FileType python setlocal completeopt-=preview
 
+Plugin 'kchmck/vim-coffee-script'
 " ~~~~~~~~~~ Color themes ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 colorscheme moonshine          " https://github.com/KKPMW/moonshine-vim.git
 "colorscheme off                 " https://github.com/pbrisbin/vim-colors-off.git
@@ -30,17 +31,32 @@ colorscheme moonshine          " https://github.com/KKPMW/moonshine-vim.git
 "colorscheme duotone-darkpool   " https://github.com/atelierbram/vim-colors_duotones.git
 
 :set background=dark
+" ~~~~~~~~~~ Debugging ~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~
+
+Plugin 'jaredly/vim-debug'    " before installation do `pip install vimpdb`
+nnoremap <C-b> oimport pdb; pdb.set_trace()<Esc> " adds vimpdb entry point in vim on Ctrl-B
 
 " ~~~~~~~~~~ Navigation Bar & File Search ~~~~~~~~~~~~~~~
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 map <silent> <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$'] "   ignore files
 Plugin 'yonchu/accelerated-smooth-scroll'
 " ~~~~~~~~~~ Powerline ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:airline_powerline_fonts=1
 let &t_Co=256
 Plugin 'tpope/vim-fugitive' " Git support
+Plugin 'airblade/vim-gitgutter' " shows modified lines
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '~~'
+let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_removed_first_line = '--'
+let g:gitgutter_sign_modified_removed = '~-'
+let g:gitgutter_sign_column_always = 1
+"let g:gitgutter_override_sign_column_highlight = 0
+highlight GitGutterAddLine ctermfg=green ctermbg=green
+set updatetime=250
 " ~~~~~~~~~~ Vim settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set encoding=utf-8
 syntax on
@@ -55,6 +71,17 @@ set modeline
 
 map = <c-w>>
 map - <c-w><
+
+"split navigations
+nnoremap <C-Down> <C-W><C-J>    " to bottom split
+nnoremap <C-Up> <C-W><C-K>      " to upper split
+nnoremap <C-Right> <C-W><C-L>   " to right split
+nnoremap <C-Left> <C-W><C-H>    " to left split
+
+" tab navigation
+map  <C-S-Right> :tabn<CR> " left tab
+map  <C-S-Left> :tabp<CR>  " right tab
+map  <C-T> :tabnew<CR>     " new tab
 
 :set lazyredraw
 :set nu
