@@ -57,6 +57,15 @@ let g:gitgutter_sign_column_always = 1
 "let g:gitgutter_override_sign_column_highlight = 0
 highlight GitGutterAddLine ctermfg=green ctermbg=green
 set updatetime=250
+" ~~~~~~~~~~ Better awRCH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" brew install the_silver_searcher
+" brew install ack
+" needs Ack version >= 2.0
+Plugin 'mileszs/ack.vim'
+" let g:ackprg = 'ag --vimgrep --nogroup --nocolor --column'
+let g:ackprg = 'ag -R --vimgrep '
+
+
 " ~~~~~~~~~~ Vim settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 set encoding=utf-8
 syntax on
